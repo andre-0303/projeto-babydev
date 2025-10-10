@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Habilita scroll suave por CSS (comportamento nativo onde suportado) */
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "ITC Zapf Chancery Pro Light Italic";
+    src: url("./fonts/ITCZapfChancery/itc-zapf-chancery-light-italic.otf") format("truetype");
+    font-style: italic;
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 3rem 3rem 3rem calc(50% + 3rem);
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(243, 122, 156, 0.567) 0%,
+            rgba(255, 223, 230, 0.35) 35%,
+            rgba(255, 255, 255, 0) 50%,
+            rgb(243, 240, 240) 100%
+        ),
+        url("./img/album.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position:
+        center center,
+        left center;
+    background-size:
+        cover,
+        50% auto;
+}
+
+.main > h1,
+.main > h2 {
+    position: absolute;
+    left: -9999px;
+}
+
+.main-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+}
+
+.album-cover {
+    display: none;
+}
+
+.album-cover img {
+    display: none;
+}
+
+.album-info {
+    flex: 1 1 auto;
+    padding: 1.6rem 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    max-width: 520px;
+    margin-left: 2rem;
+}
+
+.album-info p {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
+
+.title {
+    font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: #121212;
+    margin-bottom: 1rem;
+}
+
+.album-info p {
+    font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0.7rem;
+}
+
+.album-info p strong {
+    font-weight: 600;
+    color: #111;
+}
+
+.album-info p:last-of-type {
+    margin-top: 1.2rem;
+    font-style: italic;
+    color: #444;
+}
+
+.title-main {
+    font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: #121212;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.main-tracks {
+    width: 100vw;
+    height: 80vh;
+    padding: 2rem;
+    background-image: linear-gradient(
+        80deg,
+        rgba(255, 78, 128, 0.5) 0%,
+        rgba(222, 167, 179, 0.186) 35%,
+        rgba(255, 255, 255, 0) 50%,
+        rgb(243, 240, 240) 100%
+    );
+
+    .main-tracks {
+        padding: 3rem 1.2rem;
+        background: #fafafa;
+    }
+
+    .main-tracks .title-main {
+        max-width: 1100px;
+        margin: 0 auto 1.2rem auto;
+        padding: 0 1rem;
+    }
+
+    .tracks {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+    }
+
+    .track:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .track {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.9rem 1rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .track-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        color: #9b1740;
+        font-weight: 700;
+        font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+    }
+
+    .track-title {
+        flex: 1 1 auto;
+        font-weight: 600;
+        font-size: 1.2em;
+        color: #222;
+        font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+    }
+
+    .track-duration {
+        flex: 0 0 auto;
+        color: #666;
+        margin-left: 1.2rem;
+        font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+    }
+}
+
+.listen {
+    padding: 3.5rem 1.2rem;
+    background-image: linear-gradient(
+        100deg,
+        rgba(243, 122, 156, 0.66) 0%,
+        rgba(255, 223, 230, 0.593) 35%,
+        rgba(91, 3, 3, 0) 50%,
+        rgb(243, 240, 240) 100%
+    );
+}
+
+.listen h2 {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    font-size: 2.5em;
+    font-weight: 600;
+    font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+}
+
+.listen iframe {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    height: 352px;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-image: linear-gradient(
+        100deg,
+        rgba(243, 122, 156, 0.538) 0%,
+        rgba(255, 223, 230, 0.499) 35%,
+        rgba(91, 3, 3, 0) 50%,
+        rgb(243, 240, 240) 100%
+    );
+    font-size: 1rem;
+    color: #555;
+    font-family: "ITC Zapf Chancery Pro Light Italic", serif;
+}
+
+@media (max-width: 700px) {
+    .main {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 2rem 1rem;
+        background: linear-gradient(180deg, #ffbdd2 0%, #fff 60%);
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+    }
+
+    .main-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 480px;
+        margin-left: 0;
+    }
+
+    .album-cover {
+        display: block;
+        width: 290px;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .album-cover img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .album-info {
+        width: 100%;
+        margin-left: 0;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(3px);
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .title {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+        text-align: start;
+    }
+
+    .album-info p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        text-align: justify;
+    }
+    .main-tracks {
+        height: auto;
+        padding: 2rem 1rem;
+        background: linear-gradient(180deg, #faf7f81a 0%, #fff 60%);
+    }
+
+    .listen {
+        background: linear-gradient(180deg, #faf7f81a 0%, #fff 60%);
+    }
+
+    footer {
+        background: linear-gradient(180deg, #faf7f81a 0%, #fff 60%);
+    }
+}
